@@ -54,26 +54,26 @@ function doForm() {
 	// def input elements
 	let numput = document.getElementById('num');
 	let typeput = document.getElementById('type');
-	let numpowerput = document.getElementById('num-power');
+	let powerput = document.getElementById('power');
 
 	// write the data from input to data
 	data.append('number', numput.value);
 	data.append('type', typeput.value);
-	data.append('npower', numpowerput.value);
+	data.append('power', powerput.value);
 
 	// get the input as vars
 	let i = data.get('number');
 	let n = data.get('type');
-	let np = data.get('npower');
+	let p = data.get('power');
 
 	// check if num or type is not defined
-	if (!i || !n || !np) {
+	if (!i || !n || !p) {
 		error('One or more of your inputs is not defined!');
 		return false;
 	}
 
 	// check if num or type is NaN
-	if (isNaN(i) || isNaN(n) || isNaN(np)) {
+	if (isNaN(i) || isNaN(n) || isNaN(p)) {
 		error('One or more of your inputs is NaN (Not a Number)!');
 		return false;
 	}
@@ -81,9 +81,9 @@ function doForm() {
 	if (i < 0) {
 		i = Math.pow(i * i, 1 / 2);
 
-		tryRoot(i, n, np, true);
+		tryRoot(i, n, p, true);
 	} else {
-		tryRoot(i, n, np, false);
+		tryRoot(i, n, p, false);
 	}
 
 	return false;
