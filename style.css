@@ -50,12 +50,16 @@ body {
 form {
 	margin: 0;
 	padding: 0;
-	width: 100vw;
+	width: 70%;
 	height: auto;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+}
+
+form label {
+	font-size: 100%;
 }
 
 .submit-btn {
@@ -66,7 +70,7 @@ form {
 	color: #fff;
 	font-size: 1rem;
 	font-weight: 500;
-	width: 70%;
+	width: 100%;
 	transform: translateY(2rem);
 }
 
@@ -90,7 +94,7 @@ form {
 	font-size: 1rem;
 	font-weight: 500;
 	outline: none;
-	width: 70%;
+	width: 100%;
 	margin-bottom: 1rem;
 }
 
@@ -104,6 +108,8 @@ form {
 	padding: calc(1rem - 2px) calc(2rem - 2px);
 	background: #333;
 }
+
+/* output */
 
 #output {
 	transform: translateY(3rem);
