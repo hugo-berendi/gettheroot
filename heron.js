@@ -1,36 +1,33 @@
-let a = 10
-let b = 0
-let i = 2
-let j = (i + i / i) / 2
+function test() {
+	let l = 10;
+	let t = 0;
+	let i = 2;
+	let r = (i + i / i) / 2;
 
-while (a > b) {
-    j = (j + i / j) / 2
-    console.log(j)
-    b++
+	while (l > t) {
+		r = (r + i / r) / 2;
+		if (r * r == i) {
+			console.log(r);
+		} else {
+			if (t == l) {
+				console.log(r);
+			} else {
+				t++;
+			}
+		}
+	}
 }
 
-function doForm() {
-    var data = new FormData();
-    var input = document.getElementById("num");
-
-    data.append("number", input.value);
-
-    let num = data.get("number");
-    if (!isNaN(num)) {
-        var i = parseFloat(num);
-        var j;
-
-        for (j = (i + i / i) / 2; (j = j); ) {
-            j = (j + i / j) / 2;
-            console.log(j);
-            wait(5000);
-        }
-        console.log(j);
-    } else {
-        return;
-    }
-
-    $("#calc")[0].reset();
-
-    return false;
+function log(text, type) {
+	if (type == 'error') {
+		console.error(text);
+	} else if (type == 'warn') {
+		console.warn(text);
+	} else if (type == 'info') {
+		console.info(text);
+	} else if (type == 'log') {
+		console.log(text);
+	}
 }
+
+export default log;
