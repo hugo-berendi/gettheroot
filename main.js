@@ -1,3 +1,5 @@
+import log from './heron';
+
 function error(err) {
 	// def output div
 	let wrapper = document.getElementById('output');
@@ -32,6 +34,7 @@ function tryRoot(i, n, np, imaginary) {
 				'*i</span></h1>';
 		} else {
 			// write the root to the website
+			log('this is a test', 'info');
 			output.innerHTML =
 				'<h1>The <span>' +
 				n +
