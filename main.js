@@ -35,7 +35,7 @@ function tryRoot(i, n, np, imaginary) {
 			output.innerHTML =
 				'<h1>The <span>' +
 				n +
-				'.</span> root of <span>-' +
+				'.</span> root of <span>' +
 				i +
 				'</span> is <span>' +
 				j +
