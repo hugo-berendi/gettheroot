@@ -17,8 +17,9 @@
 			<h1 id="maintext">Get the root!</h1>
 			<form
 				id="calc"
-				onsubmit="doForm(); this.reset;"
+				onsubmit="doForm(this.form); this.reset;"
 				autocomplete="off"
+				method="GET"
 			>
 				<label for="num"
 					>Please enter the number from which you would like to have
