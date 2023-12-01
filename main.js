@@ -49,7 +49,7 @@ function tryRoot(i, n, np, imaginary) {
 	}
 }
 
-function doForm(data) {
+window.doForm = function (data) {
 	// def input elements
 	let numput = document.getElementById('num');
 	let typeput = document.getElementById('type');
