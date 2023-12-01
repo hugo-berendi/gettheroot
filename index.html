@@ -17,7 +17,6 @@
 			<h1 id="maintext">Get the root!</h1>
 			<form
 				id="calc"
-				onsubmit="doForm(this.form); this.reset;"
 				autocomplete="off"
 				method="GET"
 			>
@@ -37,8 +36,9 @@
 				<input
 					id="submit"
 					class="submit-btn"
-					type="submit"
+					type="button"
 					value="Calculate"
+					onClick="doForm(this.form); this.reset;"
 				/>
 			</form>
 			<div id="output"></div>
