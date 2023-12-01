@@ -1,4 +1,4 @@
-import log from './heron';
+const log = require('./heron');
 
 function error(err) {
 	// def output div
