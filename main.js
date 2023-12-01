@@ -1,5 +1,3 @@
-const log = require('./heron');
-
 function error(err) {
 	// def output div
 	let wrapper = document.getElementById('output');
