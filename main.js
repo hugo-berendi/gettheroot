@@ -1,94 +1,64 @@
-function error(err) {
-	// def output div
-	let wrapper = document.getElementById('output');
+const error = (err) => {
+	const wrapper = document.getElementById('output');
+	wrapper.innerHTML = `<h1>A wild error appeared💥 ${err}</h1>`;
+};
 
-	wrapper.innerHTML = '<h1>A wild error appeard💥 ' + err + '</h1>';
-}
-
-function tryRoot(i, n, np, imaginary) {
-	// try to get the root
+const tryRoot = (i, n, np, imaginary) => {
 	try {
-		// def the numbers
-		let j = Math.pow(i, np / n);
+		const j = Math.pow(i, np / n);
 
-		// check if j is NaN
-		if (isNaN(j)) {
+		if (Number.isNaN(j)) {
 			error('Your result is NaN (Not a Number)!');
 			return false;
 		}
 
-		// def output div
-		let output = document.getElementById('output');
+		const output = document.getElementById('output');
 
-		if (imaginary == true) {
-			// write the root to the website
-			output.innerHTML =
-				'<h1>The <span>' +
-				n +
-				'.</span> root of <span>-' +
-				i +
-				'</span> is <span>' +
-				j +
-				'*i</span></h1>';
+		if (imaginary) {
+			output.innerHTML = `<h1>The <span>${n}.</span> root of <span>-${i}</span> is <span>${j}*i</span></h1>`;
 		} else {
-			// write the root to the website
-			log('this is a test', 'info');
-			output.innerHTML =
-				'<h1>The <span>' +
-				n +
-				'.</span> root of <span>' +
-				i +
-				'</span> is <span>' +
-				j +
-				'</span></h1>';
+			output.innerHTML = `<h1>The <span>${n}.</span> root of <span>${i}</span> is <span>${j}</span></h1>`;
 		}
-		// catch any error of the try
 	} catch (err) {
 		error(err);
 		return false;
 	}
-}
+};
 
-window.doForm = function (data) {
-	// def input elements
-	let numput = document.getElementById('num');
-	let typeput = document.getElementById('type');
-	let powerput = document.getElementById('power');
+window.doForm = (form) => {
+	const numput = document.querySelector('#num');
+	const typeput = document.querySelector('#type');
+	const powerput = document.querySelector('#power');
 
-	// write the data from input to data
-	data.append('number', numput.value);
-	data.append('type', typeput.value);
-	data.append('power', powerput.value);
+	form.append('number', numput.value);
+	form.append('type', typeput.value);
+	form.append('power', powerput.value);
 
-	// get the input as vars
-	let i = data.get('number');
-	let n = data.get('type');
-	let p = data.get('power');
+	const i = form.get('number');
+	const n = form.get('type');
+	const p = form.get('power');
 
-	// check if num or type is not defined
 	if (!i || !n || !p) {
 		error('One or more of your inputs is not defined!');
 		return false;
 	}
 
-	// check if num or type is NaN
-	if (isNaN(i) || isNaN(n) || isNaN(p)) {
+	if (Number.isNaN(i) || Number.isNaN(n) || Number.isNaN(p)) {
 		error('One or more of your inputs is NaN (Not a Number)!');
 		return false;
 	}
 
 	if (i < 0) {
 		i = Math.pow(i * i, 1 / 2);
-
 		tryRoot(i, n, p, true);
 	} else {
 		tryRoot(i, n, p, false);
 	}
 
 	return false;
-}
+};
 
-function test() {
+const test = () => {
 	let l = 10;
 	let t = 0;
 	let i = 2;
@@ -106,16 +76,23 @@ function test() {
 			}
 		}
 	}
-}
+};
 
-function log(text, type) {
-	if (type == 'error') {
-		console.error(text);
-	} else if (type == 'warn') {
-		console.warn(text);
-	} else if (type == 'info') {
-		console.info(text);
-	} else if (type == 'log') {
-		console.log(text);
+const log = (text, type) => {
+	switch (type) {
+		case 'error':
+			console.error(text);
+			break;
+		case 'warn':
+			console.warn(text);
+			break;
+		case 'info':
+			console.info(text);
+			break;
+		case 'log':
+			console.log(text);
+			break;
+		default:
+			console.log(text);
 	}
-}
+};
